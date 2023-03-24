@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hackanime/welcome.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -8,24 +10,36 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const MainApp());
+  runApp(MaterialApp(
+      title: "HackAnime",
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: const Welcome(),
+    ));
 }
 
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class Homepage extends StatelessWidget {
+  const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Register"),
+      ),
+      body: Center(
+        child: TextButton(
+          onPressed: () async {
+            Future; {
+              WidgetsFlutterBinding.ensureInitialized();
+              await Firebase.initializeApp();
+              await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+            }
+          }, 
+            child: const Text('Register')),
       ),
     );
+      
   }
-    
 }
-
-
