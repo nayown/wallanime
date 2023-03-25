@@ -12,11 +12,11 @@ void main() async {
 
   runApp(MaterialApp(
       title: "HackAnime",
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+      theme: ThemeData.dark(),
+      darkTheme: ThemeData.dark(),
       home: const Welcome(),
-    ));
+      ),
+    );
 }
 
 class Homepage extends StatelessWidget {
