@@ -113,10 +113,7 @@ class _LoginState extends State<Login> {
                   ],
               ),
               SizedBox(height: 20),
-              Image.network(
-                'http://pngimg.com/uploads/google/google_PNG19635.png',
-                height: 80,
-              ),         
+              Image(image: AssetImage('assets/images/google.png'),  height: 80,),
               SizedBox(height: 20),  
               Row( 
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -126,7 +123,7 @@ class _LoginState extends State<Login> {
                   ],
               ), 
               SizedBox(height: 60), 
-              Text("AnimeScroller", style: TextStyle(color: Colors.red, fontSize: 30))  
+              Text("AnimeScroller", style: TextStyle(color: Colors.red, fontSize: 28))  
             ],
             
 
