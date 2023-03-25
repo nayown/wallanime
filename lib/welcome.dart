@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackanime/login.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -11,18 +12,21 @@ class Welcome extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+             const Text(
               'AnimeScroll',
               style: TextStyle(
                   color: Colors.red,
                   fontSize: 24,
                   fontWeight: FontWeight.bold),
             ),
-            Image(image: AssetImage('assets/images/hellsing.jpg'),  width: 400,),
-            SizedBox(
-              height: 20,
+             const SizedBox(
+              height: 10,
             ),
-            Padding(
+             const Image(image: AssetImage('assets/images/hellsing.jpg'),  width: 400,), // height 600
+             const SizedBox(
+              height: 40,
+            ),
+             const Padding(
               padding: EdgeInsets.only(),
               child: Text(
                 'Never run out of new anime to watch because every time you scroll through the app, a brand new anime suggestion will appear.',
@@ -34,9 +38,11 @@ class Welcome extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 60,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Get Started"), style: ElevatedButton.styleFrom(backgroundColor: Colors.red, padding: EdgeInsets.only(left: 40, right: 40))),
+            ElevatedButton(onPressed: () { { 
+              Navigator.push(context,  MaterialPageRoute(builder: (context) => Login()),);
+            }}, child: Text("Get Started"), style: ElevatedButton.styleFrom(backgroundColor: Colors.red, padding: EdgeInsets.only(left: 100, right: 100, top: 20, bottom: 20))),
           ],
         ),
       ),
