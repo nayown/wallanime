@@ -13,7 +13,7 @@ class Welcome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
              const Text(
-              'AnimeScroll',
+              'AnimeScroller',
               style: TextStyle(
                   color: Colors.red,
                   fontSize: 24,
