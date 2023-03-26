@@ -25,9 +25,6 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Register"),
-      ),
       body: Center(
         child: TextButton(
           onPressed: () async {
@@ -38,7 +35,7 @@ class Homepage extends StatelessWidget {
             }
           }, 
             child: const Text('Register')),
-      ),
+      ), 
     );
       
   }
