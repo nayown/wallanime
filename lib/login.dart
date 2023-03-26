@@ -23,8 +23,8 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row( mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Text(
+                  children: const[
+                    Text(
                       'Login Account',
                       style: TextStyle(color: Colors.red, fontSize: 20),
                     ),
@@ -37,18 +37,18 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                   decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     fillColor: Colors.white,
                     filled: true,
                     hintText: 'Email Address',
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: const Icon(Icons.email),
                     prefixIconColor: Colors.red,
                     hintStyle: TextStyle(color: Colors.grey[500])
               
@@ -62,39 +62,39 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
                   obscureText: true,
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                   decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     fillColor: Colors.white,
                     filled: true,
                     hintText: 'Password',
-                    prefixIcon: Icon(Icons.password),
+                    prefixIcon: const Icon(Icons.password),
                     prefixIconColor: Colors.red,
                     hintStyle: TextStyle(color: Colors.grey[500])
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: const [
                     Text('Forgot password', style: TextStyle(color: Colors.white),),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.all(20),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(8)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "Log In",
                     style: TextStyle(
@@ -105,25 +105,25 @@ class _LoginState extends State<Login> {
                   )
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Row( 
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text("Or login with", style: TextStyle(color: Colors.white),),
                   ],
               ),
-              SizedBox(height: 20),
-              Image(image: AssetImage('assets/images/google.png'),  height: 80,),
-              SizedBox(height: 20),  
+              const SizedBox(height: 20),
+              const Image(image: AssetImage('assets/images/google.png'),  height: 80,),
+              const SizedBox(height: 20),  
               Row( 
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text("Dont have an account?", style: TextStyle(color: Colors.white),),
                     Text(" Sign up", style: TextStyle(color: Colors.red),),
                   ],
               ), 
-              SizedBox(height: 60), 
-              Text("AnimeScroller", style: TextStyle(color: Colors.red, fontSize: 28))  
+              const SizedBox(height: 60), 
+              const Text("AnimeScroller", style: TextStyle(color: Colors.red, fontSize: 28))  
             ],
             
 
