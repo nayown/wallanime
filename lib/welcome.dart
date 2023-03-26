@@ -42,7 +42,6 @@ class Welcome extends StatelessWidget {
               height: 60,
             ),
             ElevatedButton(
-               child: Text("Get Started"),
                 onPressed: () {
                   {
                     Navigator.push(
@@ -51,11 +50,12 @@ class Welcome extends StatelessWidget {
                     );
                   }
                 },
-               
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     padding: const EdgeInsets.only(
-                        left: 100, right: 100, top: 20, bottom: 20))),
+                        left: 100, right: 100, top: 20, bottom: 20)),
+                child: const Text("Get Started"),
+              ),
           ],
         ),
       ),
