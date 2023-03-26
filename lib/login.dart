@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackanime/register.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -117,10 +118,26 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 20),  
               Row( 
                 mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text("Dont have an account?", style: TextStyle(color: Colors.white),),
-                    Text(" Sign up", style: TextStyle(color: Colors.red),),
-                  ],
+                  children: [
+                    const Text("Dont have an account?", style: TextStyle(color: Colors.white),),
+                   TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize:16),
+                      foregroundColor: Colors.red,
+                          ),
+                    onPressed: () {
+                      {
+                        {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Register()),
+                      );
+                       }
+                      }
+                    },
+                    child: const Text('Sign Up'),
+                  ),
+                  ]
               ), 
               const SizedBox(height: 60), 
               const Text("AnimeScroller", style: TextStyle(color: Colors.red, fontSize: 28))  
