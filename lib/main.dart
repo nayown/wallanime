@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hackanime/welcome.dart';
+import 'package:hackanime/widgets/welcome.dart';
 import 'firebase_options.dart';
 
 void main() async {
