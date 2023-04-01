@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hackanime/pages/register.dart';
-import 'package:hackanime/pages/home.dart';
+import 'package:hackanime/screens/register.dart';
+import 'package:hackanime/screens/home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
