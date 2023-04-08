@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackanime/components/auth_account.dart';
 import 'package:hackanime/screens/login.dart';
 
 class Welcome extends StatelessWidget {
@@ -46,7 +47,7 @@ class Welcome extends StatelessWidget {
                   {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Login()),
+                      MaterialPageRoute(builder: (context) => const AuthAccount()),
                     );
                   }
                 },
