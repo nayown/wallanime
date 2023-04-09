@@ -3,15 +3,54 @@ import 'package:hackanime/components/login_button.dart';
 import 'package:hackanime/screens/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Login extends StatelessWidget {
-  Login({super.key });
+class Login extends StatefulWidget {
+  const Login({super.key});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  void wrongEmail() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(title: Text("Wrong Email"));
+        });
+  }
+
+  void wrongPassword() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(title: Text("Wrong Email"));
+        });
+  }
+
   void loginUser() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text, password: passwordController.text);
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      if (e.code == 'user-not-found') {
+        wrongEmail();
+      } else if (e.code == 'wrong-password') {
+        wrongEmail();
+      }
+    }
+
   }
 
   @override
@@ -100,7 +139,7 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 // Login Button
-                
+
                 LoginButton(onTap: loginUser),
 
                 const SizedBox(height: 25),
@@ -142,7 +181,6 @@ class Login extends StatelessWidget {
                     },
                     child: const Text('Sign up'),
                   ),
-                  
                 ]),
                 const SizedBox(height: 60),
                 const Text("AnimeScroller",
