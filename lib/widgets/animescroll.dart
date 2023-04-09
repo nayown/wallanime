@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class AnimeScroll extends StatefulWidget {
   const AnimeScroll({super.key});
