@@ -1,14 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:hackanime/components/register_button.dart';
 import 'package:hackanime/screens/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 class Register extends StatefulWidget {
   const Register({super.key});
+
+  
 
   @override
   State<Register> createState() => _RegisterState();
 }
 
+
 class _RegisterState extends State<Register> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
+  void showError(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.black,
+            title: Text(message));
+        });
+  }
+  
+  void registerUser() async {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      });
+
+    try {
+      if (passwordController.text == confirmPasswordController.text){
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text, );
+      } else {
+        showError("Password don't match");
+      }
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      showError(e.code);
+    }
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +80,7 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
+                  controller: emailController,
                   style: const TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
@@ -59,6 +104,7 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
+                  controller: passwordController,
                   obscureText: true,
                   style: const TextStyle(color: Colors.black),
                   decoration: InputDecoration(
@@ -83,6 +129,7 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
+                  controller: confirmPasswordController,
                   obscureText: true,
                   style: const TextStyle(color: Colors.black),
                   decoration: InputDecoration(
@@ -102,21 +149,7 @@ class _RegisterState extends State<Register> {
                 ),
               ),
               const SizedBox(height: 30),
-              Container(
-                padding: const EdgeInsets.all(20),
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(8)),
-                child: const Center(
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 16,
-                    )
-                  )
-                ),
-              ),
+              RegisterButton(onTap: registerUser),
               const SizedBox(height: 25),
               Row( 
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -141,7 +174,7 @@ class _RegisterState extends State<Register> {
                         {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Login()),
+                        MaterialPageRoute(builder: (context) => const Login()),
                       );
                        }
                       }

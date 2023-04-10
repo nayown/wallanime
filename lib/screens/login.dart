@@ -14,19 +14,13 @@ class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void wrongEmail() {
+  void showError(String message) {
     showDialog(
         context: context,
         builder: (context) {
-          return const AlertDialog(title: Text("Wrong Email"));
-        });
-  }
-
-  void wrongPassword() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(title: Text("Wrong Email"));
+          return AlertDialog(
+            backgroundColor: Colors.black,
+            title: Text(message));
         });
   }
 
@@ -42,14 +36,9 @@ class _LoginState extends State<Login> {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      if (e.code == 'user-not-found') {
-        wrongEmail();
-      } else if (e.code == 'wrong-password') {
-        wrongEmail();
-      }
+      showError(e.code);
     }
 
   }

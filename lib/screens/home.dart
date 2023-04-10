@@ -1,23 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
 import 'package:hackanime/widgets/animescroll.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(title: const Text("AnimeScroller", style: TextStyle(color: Colors.red),), automaticallyImplyLeading: false, backgroundColor: Colors.black,),
       //Insert Main Content Scroll Feature
-      body: const AnimeScroll(), 
+      body: AnimeScroll(),
       bottomNavigationBar: BottomNavigationBar(
         //showSelectedLabels: false,
         //showUnselectedLabels: false,
