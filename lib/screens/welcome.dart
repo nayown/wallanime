@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hackanime/components/auth_account.dart';
-import 'package:hackanime/screens/login.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -14,7 +13,7 @@ class Welcome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'AnimeScroller',
+              'WallAnime',
               style: TextStyle(
                   color: Colors.red, fontSize: 24, fontWeight: FontWeight.bold),
             ),
@@ -28,19 +27,33 @@ class Welcome extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(),
-              child: Text(
-                'Never run out of new anime to watch because every time you scroll through the app, a brand new anime suggestion will appear.',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-                textAlign: TextAlign.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Introducing the WallAnime!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Endless anime wallpaper suggestions at your fingertips!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
             const SizedBox(
-              height: 60,
+              height: 40,
             ),
             ElevatedButton(
                 onPressed: () {

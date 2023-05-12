@@ -25,23 +25,29 @@ class _LoginState extends State<Login> {
   }
 
   void loginUser() async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
-    } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
-      showError(e.code);
+  showDialog(
+    context: context,
+    builder: (context) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
     }
+  );
 
+  try {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text, 
+      password: passwordController.text
+    ).timeout(const Duration(seconds: 10)); // add a timeout of 10 seconds
+    Navigator.pop(context); // remove the progress indicator
+  } on FirebaseAuthException catch (e) {
+    Navigator.pop(context);
+    showError(e.code);
+  } catch (e) {
+    Navigator.pop(context);
+    showError("An error occurred while logging in. Please try again.");
   }
+}
 
   @override
   Widget build(BuildContext context) {

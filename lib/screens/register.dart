@@ -3,17 +3,12 @@ import 'package:hackanime/components/register_button.dart';
 import 'package:hackanime/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
-
 class Register extends StatefulWidget {
   const Register({super.key});
-
-  
 
   @override
   State<Register> createState() => _RegisterState();
 }
-
 
 class _RegisterState extends State<Register> {
   final emailController = TextEditingController();
@@ -22,35 +17,63 @@ class _RegisterState extends State<Register> {
 
   void showError(String message) {
     showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            backgroundColor: Colors.black,
-            title: Text(message));
-        });
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.black,
+          title: Text(message),
+        );
+      },
+    );
   }
-  
-  void registerUser() async {
-  showDialog(
+
+  void showSuccess() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.black,
+          title: const Text('Registration Successful'),
+          content: const Text('You have successfully registered.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> registerUser() async {
+    showDialog(
       context: context,
       builder: (context) {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      });
+      },
+    );
 
     try {
-      if (passwordController.text == confirmPasswordController.text){
+      if (passwordController.text == confirmPasswordController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text, );
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        Navigator.pop(context);
+        showSuccess(); // show success dialog if user creation was successful
       } else {
-        showError("Password don't match");
+        showError("Passwords don't match");
+        Navigator.pop(context);
       }
     } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
       showError(e.code);
+      Navigator.pop(context);
     }
-    Navigator.pop(context);
   }
 
   @override
