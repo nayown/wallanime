@@ -7,9 +7,9 @@ Pages
 - [x] Welcome
 - [x] Login
 - [x] Signup
-- [ ] Home (Anime Scroll)
-- [ ] Favorites (Anime List)
-- [ ] Profile (Email and Password)
+- [X] Home (Anime Scroll)
+- [X] Favorites (Anime List)
+- [X] Profile (Email and Password)
 
 Authentication
 
@@ -17,8 +17,8 @@ Authentication
 - [ ] Login with Google Account
 - [x] Signup with Email and Password
 - [ ] Signup with Google Account
-- [ ] Logout
+- [X] Logout
 
 API 
 
-- [ ] Anime
+- [X] Anime  
