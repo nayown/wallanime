@@ -207,7 +207,7 @@ class _RegisterState extends State<Register> {
                   ]
               ), 
               const SizedBox(height: 60), 
-              const Text("AnimeScroller", style: TextStyle(color: Colors.red, fontSize: 28))   
+              const Text("WallAnime", style: TextStyle(color: Colors.red, fontSize: 28))   
             ],
           ),
         ),

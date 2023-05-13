@@ -179,7 +179,7 @@ class _LoginState extends State<Login> {
                   ),
                 ]),
                 const SizedBox(height: 60),
-                const Text("AnimeScroller",
+                const Text("WallAnime",
                     style: TextStyle(color: Colors.red, fontSize: 28))
               ],
             ),
