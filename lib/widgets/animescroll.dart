@@ -77,14 +77,36 @@ class _AnimeScrollState extends State<AnimeScroll> {
                             if (isFavorite) {
                               setState(() {
                                 _favoriteList.remove(currentImageUrl);
+                                isFavorite = false;
                               });
                             } else {
-                              widget.addToFavorites(currentImageUrl); // Call the addToFavorites function using the widget object
+                              setState(() {
+                                _favoriteList.add(currentImageUrl);
+                                isFavorite = true;
+                              });
+                              widget.addToFavorites(currentImageUrl);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Added to favorites!'),
+                                  duration: const Duration(seconds: 1),
+                                  behavior: SnackBarBehavior.floating,
+                                  margin: const EdgeInsets.all(10),
+                                  elevation: 5,
+                                  backgroundColor: Colors.red,
+                                  action: SnackBarAction(
+                                    label: 'Dismiss',
+                                    textColor: Colors.white,
+                                    onPressed: () {
+                                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                    },
+                                  ),
+                                ),
+                              );
                             }
                           },
                           child: Icon(
                             isFavorite ? Icons.favorite : Icons.favorite_border,
-                            color: isFavorite ? Colors.red : Colors.white,
+                            color: isFavorite ? Colors.black : Colors.white,
                           ),
                         ),
                       ),

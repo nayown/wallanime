@@ -25,7 +25,7 @@ class FavoriteList extends StatelessWidget {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text('Image downloaded successfully!'),
-                                duration: const Duration(seconds: 2),
+                                duration: const Duration(seconds: 1),
                                 behavior: SnackBarBehavior.floating,
                                 margin: const EdgeInsets.all(10),
                                 elevation: 5,
