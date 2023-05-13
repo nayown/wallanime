@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hackanime/components/login_button.dart';
 import 'package:hackanime/screens/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hackanime/screens/home.dart';
+
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -13,6 +16,8 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
 
   void showError(String message) {
     showDialog(
@@ -149,9 +154,21 @@ class _LoginState extends State<Login> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const Image(
-                  image: AssetImage('assets/images/google.png'),
-                  height: 80,
+                GestureDetector(
+                  onTap: () async {
+                    final GoogleSignInAccount? account = await _googleSignIn.signIn();
+                    if (account != null) {
+                      // User signed in, handle the account object
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    }
+                  },
+                  child: const Image(
+                    image: AssetImage('assets/images/google.png'),
+                    height: 80,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 class ProfileCard extends StatefulWidget {
   ProfileCard({Key? key}) : super(key: key);
@@ -16,11 +18,16 @@ class _ProfileCardState extends State<ProfileCard> {
     await FirebaseAuth.instance.signOut();
   }
 
-  @override
+    @override
   void initState() {
     super.initState();
-    emailController.text = currentUser?.email ?? '';
+    if (FirebaseAuth.instance.currentUser != null) {
+      emailController.text = FirebaseAuth.instance.currentUser!.email ?? '';
+    } else if (GoogleSignIn().currentUser != null) {
+      emailController.text = GoogleSignIn().currentUser!.email;
+    }
   }
+
 
 @override
   Widget build(BuildContext context) {
