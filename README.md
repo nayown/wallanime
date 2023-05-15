@@ -1,4 +1,4 @@
-# hackanime
+# wallanime
 
 Todo
 
@@ -14,11 +14,10 @@ Pages
 Authentication
 
 - [x] Login with Email and Password
-- [ ] Login with Google Account
+- [X] Login with Google Account
 - [x] Signup with Email and Password
-- [ ] Signup with Google Account
 - [X] Logout
 
 API 
 
-- [X] Anime  
+- [X] Wallhaven
