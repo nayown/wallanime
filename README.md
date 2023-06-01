@@ -21,3 +21,10 @@ Authentication
 API 
 
 - [X] Wallhaven
+
+Demo
+
+
+
+https://github.com/jemcv/hackanime/assets/91963927/f0197812-8da2-47c9-9b53-c0a1e4ff6701
+
